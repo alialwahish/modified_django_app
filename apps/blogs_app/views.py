@@ -2,9 +2,13 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.template import loader
 
 # Create your views here.
+def home(request):
+    return redirect('/blogs')
+
 def index(request):
-    
-    return HttpResponse("placeholder to later display all the list of blogs")
+    word="placeholder to later display all the list of blogs"
+    return render(request,'blogs_app/index.html',{'word':word})
+        
 
 def new(request):
     
@@ -12,7 +16,7 @@ def new(request):
 
 def create(request):
     
-    return redirect('/')
+    return redirect('/blogs')
 
 def number(request,num):
     
@@ -22,5 +26,5 @@ def edit(request,num):
     return HttpResponse('placeholder to display EDIT blog '+str(num))
 
 def distroy(request,num):
-    return redirect('/')
+    return redirect('/blogs')
 
